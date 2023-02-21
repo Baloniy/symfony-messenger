@@ -1,0 +1,15 @@
+services:
+  database:
+    image: mysql:8.0
+    container_name: async-db
+    restart: unless-stopped
+    volumes:
+      - mysqldata:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: symfony-messenger
+
+volumes:
+  mysqldata:
